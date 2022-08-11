@@ -54,7 +54,7 @@
   }
 }
 
-// https://piccalil.li/blog/a-modern-css-reset
+/* // https://piccalil.li/blog/a-modern-css-reset */
 
 /* Box sizing rules */
 *,
@@ -397,15 +397,12 @@ input:where([type="text"], [type="email"], ) {
 
 .numbered-items div {
   display: grid;
-  position: relative;
   align-items: center;
   column-gap: var(--size-300);
   grid-template-columns: min-content 1fr;
 }
 
 .numbered-items__title {
-  grid-row: 1 / 2;
-  grid-column: 2 / 3;
   line-height: 1;
 }
 
@@ -419,8 +416,7 @@ input:where([type="text"], [type="email"], ) {
   }
 }
 
-.numbered-items div::before,
-.numbered-items div::after {
+.numbered-items div::before {
   height: 40px;
 }
 
@@ -433,21 +429,13 @@ input:where([type="text"], [type="email"], ) {
   background-color: var(--clr-accent-400);
   padding: 0 var(--size-500);
   border-radius: 100vw;
-  grid-row: 1 / 2;
-  grid-column: 1 / 2;
 }
 
 @media (max-width: 30em) {
-  .numbered-items div::after {
-    --bg: var(--clr-accent-100);
-    content: "";
-    display: block;
+  .numbered-items div::before {
+    box-shadow: 0 0 0 100vmax var(--clr-accent-100);
+    clip-path: inset(0 -100vmax 0 0 round 100vw);
     z-index: -1;
-    border-radius: 100vw 0 0 100vw;
-    grid-column: 1 / -1;
-    grid-row: 1 / 2;
-    box-shadow: 5em 0 0 var(--bg);
-    background: var(--bg);
   }
 }
 
